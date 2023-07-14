@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "",
+    "dev": "pnpm run build --watch",
+    "build": "rm -rf dist && tsup src/index.ts --dts",
     "test": "vitest",
     "lint": "eslint --ext .ts ."
   },
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@yuusheng/eslint-config": "^0.0.4",
     "eslint": "^8.44.0",
+    "tsup": "^7.1.0",
     "typescript": "^5.1.6",
     "vitest": "^0.33.0"
   },
