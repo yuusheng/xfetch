@@ -1,26 +1,28 @@
 {
   "name": "xfetch",
   "version": "0.0.1",
-  "description": "",
-  "main": "src/index.ts",
-  "scripts": {
-    "dev": "pnpm run build --watch",
-    "build": "rm -rf dist && tsup src/index.ts --dts",
-    "test": "vitest",
-    "lint": "eslint --ext .ts ."
-  },
+  "description": "Axios like fetch wrapper",
+  "author": "yuusheng <hi@yuusheng.im>",
+  "license": "MIT",
   "keywords": [
     "axios",
     "fetch"
   ],
-  "author": "yuusheng <hi@yuusheng.im>",
-  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm run build --watch",
+    "build": "rm -rf dist && tsup src/index.ts --dts",
+    "test": "vitest",
+    "lint": "eslint ."
+  },
   "devDependencies": {
+    "@vitest/browser": "^0.33.0",
     "@yuusheng/eslint-config": "^0.0.4",
     "eslint": "^8.44.0",
+    "node-fetch": "^3.3.1",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6",
-    "vitest": "^0.33.0"
+    "vitest": "^0.33.0",
+    "webdriverio": "^8.12.3"
   },
   "eslintConfig": {
     "extends": "@yuusheng"
