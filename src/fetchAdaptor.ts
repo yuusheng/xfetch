@@ -17,7 +17,7 @@ function fetchAdapter(url: string, config: RequestInit) {
     })
 }
 
-function funcFactory(method: 'get' | 'post' | 'put' | 'delete') {
+function fetchFactory(method: 'get' | 'post' | 'put' | 'delete') {
   return function (url: string, config: Exclude<RequestInit, 'method'> = {}) {
     return fetchAdapter(url, {
       ...config,
@@ -26,9 +26,9 @@ function funcFactory(method: 'get' | 'post' | 'put' | 'delete') {
   }
 }
 
-export const get = funcFactory('get')
-export const post = funcFactory('post')
-export const put = funcFactory('put')
-export const del = funcFactory('delete')
+export const get = fetchFactory('get')
+export const post = fetchFactory('post')
+export const put = fetchFactory('put')
+export const del = fetchFactory('delete')
 
 export const xFetch = fetchAdapter
