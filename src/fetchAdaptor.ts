@@ -1,3 +1,5 @@
+import type { Methods } from './types'
+
 function fetchAdapter(url: string, config: RequestInit) {
   const headers = { 'Content-Type': 'application/json' }
   const customConfig = {
@@ -17,8 +19,8 @@ function fetchAdapter(url: string, config: RequestInit) {
     })
 }
 
-function fetchFactory(method: 'get' | 'post' | 'put' | 'delete') {
-  return function (url: string, config: Exclude<RequestInit, 'method'> = {}) {
+function fetchFactory(method: Methods) {
+  return (url: string, config: Exclude<RequestInit, 'method'> = {}) => {
     return fetchAdapter(url, {
       ...config,
       method: method.toUpperCase(),
@@ -26,9 +28,7 @@ function fetchFactory(method: 'get' | 'post' | 'put' | 'delete') {
   }
 }
 
-export const get = fetchFactory('get')
-export const post = fetchFactory('post')
-export const put = fetchFactory('put')
-export const del = fetchFactory('delete')
+const methods = ['get', 'post', 'put', 'delete'] as const
+export const [get, post, put, del] = methods.map(fetchFactory)
 
-export const xFetch = fetchAdapter
+export const xfetch = fetchAdapter

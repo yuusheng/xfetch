@@ -10,7 +10,7 @@ export interface GetResponse {
 }
 
 function getData() {
-  return get('https://jsonplaceholder.typicode.com/todos/1')
+  return get('https://jsonplaceholder.typicode.com/todos')
 }
 
 async function main() {
